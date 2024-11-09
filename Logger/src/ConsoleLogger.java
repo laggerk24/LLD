@@ -4,10 +4,6 @@ public class ConsoleLogger extends Logger{
         super(logger);
     }
 
-    public ConsoleLogger(){
-        super(null);
-    }
-
     @Override
     public void Log(LogType logType, String message) {
         if(logType == LogType.CONSOLE){

@@ -2,10 +2,6 @@ public class ErrorLogger extends Logger{
     public ErrorLogger(Logger logger){
         super(logger);
     }
-    public ErrorLogger(){
-        super(null);
-    }
-
 
     @Override
     public void Log(LogType logType, String message) {

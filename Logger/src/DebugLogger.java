@@ -3,11 +3,6 @@ public class DebugLogger extends Logger{
         super(logger);
     }
 
-    public DebugLogger(){
-        super(null);
-    }
-
-
     @Override
     public void Log(LogType logType, String message) {
         if(logType == LogType.DEBUG){
