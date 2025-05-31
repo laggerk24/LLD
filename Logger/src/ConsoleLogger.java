@@ -12,9 +12,5 @@ public class ConsoleLogger extends Logger{
         else if(nextLogger != null){
             nextLogger.Log(logType,message);
         }
-        else {
-            System.out.println("INVALID LOG TYPE");
-        }
     }
-
 }
