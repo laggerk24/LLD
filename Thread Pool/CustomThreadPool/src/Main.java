@@ -7,7 +7,7 @@ public class Main {
         CustomThreadPool threadPool = CustomThreadPool.getThreadPool(maxThreads, queueSize);
 
         // Submit some tasks
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 30; i++) {
             int taskId = i;
             try {
                 threadPool.submit(() -> {
@@ -25,10 +25,10 @@ public class Main {
         }
 
         // Wait some time to allow tasks to complete
-        Thread.sleep(6000);
+//        Thread.sleep(6000);
 
         // Shut down the thread pool
-        threadPool.shutdown();
+//        threadPool.shutdown();
 
         System.out.println("All tasks completed and thread pool shut down.");
     }
