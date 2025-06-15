@@ -10,12 +10,13 @@ public abstract class AbstractLogger {
         this.nextLogger = nextLogger;
     }
 
-    public void log(int level,String message){
+    public void log(int level,String message, LogObservable observable){
         if(level == this.level){
             display(message);
+            observable.notifyObserver(level,message);
         }
         else if(nextLogger != null){
-            nextLogger.log(level,message);
+            nextLogger.log(level,message,observable);
         }
     }
 
