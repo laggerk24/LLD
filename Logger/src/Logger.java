@@ -40,4 +40,5 @@ public class Logger implements Cloneable, Serializable {
     public void debug(String message){
         baseLogger.log(3,message,logObservable);
     }
+    StringBuilder
 }
