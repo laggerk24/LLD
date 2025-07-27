@@ -8,8 +8,12 @@ public class Row {
         this.data = new ConcurrentHashMap<>();
     }
 
-    public ConcurrentHashMap<String, Object> getData() {
-        return data;
+    public String getData() {
+        StringBuilder sb = new StringBuilder();
+        for(String key: data.keySet()){
+            sb.append(key).append(":").append(data.get(key)).append(",");
+        }
+        return sb.toString();
     }
 
     public void setRowValue(String key, Object value){

@@ -13,11 +13,11 @@ public class Database implements DatabaseInterface {
     }
 
     @Override
-    public <K> void addTable(String tableName, TableSchema schema) {
+    public <K> void createTable(String tableName, HashMap<String, Class<?>> tableSchema) {
         if(tables.containsKey(tableName)){
             throw new TableAlreadyExistException(tableName + " already exist in the database " + databaseName);
         }
-        Table<K> table = new Table<>(tableName,schema);
+        Table<K> table = new Table<>(tableName,new TableSchema(tableSchema));
         tables.put(tableName,table);
     }
 
@@ -27,7 +27,7 @@ public class Database implements DatabaseInterface {
     }
 
     @Override
-    public ConcurrentHashMap<?,Object> getRowFromTable(String tableName, Object key){
+    public String getRowFromTable(String tableName, Object key){
         if(!tables.containsKey(tableName)){
             throw new TableNotFoundException(tableName + " not present in " + databaseName);
         }
@@ -36,7 +36,7 @@ public class Database implements DatabaseInterface {
     }
 
     @Override
-    public ConcurrentHashMap<?, Row> getAllRows(String tableName){
+    public String getAllRows(String tableName){
         if(!tables.containsKey(tableName)){
             throw new TableNotFoundException(tableName + " not present in " + databaseName);
         }
@@ -44,7 +44,7 @@ public class Database implements DatabaseInterface {
     }
 
     @Override
-    public <K> ConcurrentHashMap<String, Object> insertIntoTable(String tableName, K key, HashMap<String, Object> rowData) throws AttributeNotFoundException {
+    public <K> String insertIntoTable(String tableName, K key, HashMap<String, Object> rowData) throws AttributeNotFoundException {
         if(!tables.containsKey(tableName)){
             throw new TableNotFoundException(tableName + " not present in " + databaseName);
         }
@@ -54,7 +54,7 @@ public class Database implements DatabaseInterface {
     }
 
     @Override
-    public <K> ConcurrentHashMap<String, Object> updateTable(String tableName, K key, HashMap<String, Object> rowData) throws AttributeNotFoundException {
+    public <K> String updateTable(String tableName, K key, HashMap<String, Object> rowData) throws AttributeNotFoundException {
         if(!tables.containsKey(tableName)){
             throw new TableNotFoundException(tableName + " not present in " + databaseName);
         }

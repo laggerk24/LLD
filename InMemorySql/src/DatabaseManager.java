@@ -1,3 +1,4 @@
+import javax.xml.crypto.Data;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class DatabaseManager {
@@ -18,11 +19,12 @@ public class DatabaseManager {
         return instance;
     }
 
-    public void addDatabase(String databaseName){
+    public Database addDatabase(String databaseName){
         if(databasemanager.containsKey(databaseName)){
             throw new DatabaseAlreadyExistException(databaseName + " Database already exist");
         }
         databasemanager.put(databaseName,new Database(databaseName));
+        return databasemanager.get(databaseName);
     }
 
     public Database getDatabase(String databaseName){

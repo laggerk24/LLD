@@ -7,6 +7,6 @@ public interface TableInteface<K> {
     Row insertRow(K Key, HashMap<String, Object> value) throws AttributeNotFoundException;
     Row updateRow(K key, HashMap<String, Object> val) throws AttributeNotFoundException;
     void deleteRow(K key);
-    ConcurrentHashMap<String, Object> getRow(K key);
-    ConcurrentHashMap<K,Row> getAllRows();
+    String getRow(K key);
+    String getAllRows();
 }

@@ -30,9 +30,6 @@ public class Table<K> implements TableInteface<K>{
             HashMap<String,Class<?>> schema = tableSchema.getSchema();
             Row row = new Row();
 
-            for(String column: schema.keySet()){
-                row.setRowValue(column,null);
-            }
             for(String k: value.keySet()){
                 if(!schema.containsKey(k)){
                     throw new AttributeNotFoundException(key + " not present in table " + tableName);
@@ -82,13 +79,18 @@ public class Table<K> implements TableInteface<K>{
     }
 
     @Override
-    public ConcurrentHashMap<String, Object> getRow(K key) {
+    public String getRow(K key) {
         return rows.get(key).getData();
     }
 
     @Override
-    public ConcurrentHashMap<K, Row> getAllRows() {
-        return rows;
+    public String getAllRows() {
+        StringBuilder sb = new StringBuilder();
+        for(K key: rows.keySet()){
+            Row row = rows.get(key);
+            sb.append(key).append(".").append(row.getData()).append("\n");
+        }
+        return sb.toString();
     }
 
 }
