@@ -4,8 +4,8 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 public interface TableInteface<K> {
-    Row insertRow(K Key, HashMap<String, Objects> value) throws AttributeNotFoundException;
-    Row updateRow(K key, HashMap<String, Objects> val) throws AttributeNotFoundException;
+    Row insertRow(K Key, HashMap<String, Object> value) throws AttributeNotFoundException;
+    Row updateRow(K key, HashMap<String, Object> val) throws AttributeNotFoundException;
     void deleteRow(K key);
     ConcurrentHashMap<String, Object> getRow(K key);
     ConcurrentHashMap<K,Row> getAllRows();

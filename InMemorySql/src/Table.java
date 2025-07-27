@@ -20,7 +20,7 @@ public class Table<K> implements TableInteface<K>{
     }
 
     @Override
-    public Row insertRow(K key, HashMap<String, Objects> value) throws AttributeNotFoundException {
+    public Row insertRow(K key, HashMap<String, Object> value) throws AttributeNotFoundException {
         readWriteLock.writeLock().lock();
         try{
             if(rows.containsKey(key)){
@@ -51,7 +51,7 @@ public class Table<K> implements TableInteface<K>{
     }
 
     @Override
-    public Row updateRow(K key, HashMap<String, Objects> value) throws AttributeNotFoundException {
+    public Row updateRow(K key, HashMap<String, Object> value) throws AttributeNotFoundException {
         readWriteLock.writeLock().lock();
         try{
             if(!rows.containsKey(key)){
