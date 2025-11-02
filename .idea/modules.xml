@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/LLD.iml" filepath="$PROJECT_DIR$/.idea/LLD.iml" />
       <module fileurl="file://$PROJECT_DIR$/Logger/Logger.iml" filepath="$PROJECT_DIR$/Logger/Logger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Rate-Limitor/Rate-Limitor.iml" filepath="$PROJECT_DIR$/Rate-Limitor/Rate-Limitor.iml" />
       <module fileurl="file://$PROJECT_DIR$/Snake And Ladder/Snake And Ladder.iml" filepath="$PROJECT_DIR$/Snake And Ladder/Snake And Ladder.iml" />
       <module fileurl="file://$PROJECT_DIR$/Thread Pool/Thread Pool.iml" filepath="$PROJECT_DIR$/Thread Pool/Thread Pool.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tic-Tac-Toe/Tic-Tac-Toe.iml" filepath="$PROJECT_DIR$/Tic-Tac-Toe/Tic-Tac-Toe.iml" />
