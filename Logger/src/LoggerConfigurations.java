@@ -1,6 +1,4 @@
-import java.util.Observable;
-
-public class LoggerManager {
+public class LoggerConfigurations {
     public static AbstractLogger loggerInitializer(){
         InfoLogger infoLogger = new InfoLogger(LogType.INFO);
         ErrorLogger errorLogger = new ErrorLogger(LogType.ERROR);

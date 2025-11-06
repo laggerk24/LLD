@@ -11,8 +11,8 @@ public class Logger implements Cloneable, Serializable {
             synchronized (Logger.class){
                 if(logger == null){
                     logger = new Logger();
-                    baseLogger = LoggerManager.loggerInitializer();
-                    logObservable = LoggerManager.observableInitializer();
+                    baseLogger = LoggerConfigurations.loggerInitializer();
+                    logObservable = LoggerConfigurations.observableInitializer();
                 }
             }
         }
