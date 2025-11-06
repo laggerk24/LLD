@@ -3,20 +3,20 @@ import java.util.HashMap;
 import java.util.List;
 
 public class LogObservable {
-    HashMap<Integer, List<Observer>> levelObserverMapper;
+    HashMap<LogType, List<Observer>> levelObserverMapper;
 
     LogObservable(){
         levelObserverMapper = new HashMap<>();
     }
 
-    public void addObserver(int level, Observer observer){
-        List<Observer> observers = levelObserverMapper.getOrDefault(level,new ArrayList<Observer>());
+    public void addObserver(LogType logType, Observer observer){
+        List<Observer> observers = levelObserverMapper.getOrDefault(logType,new ArrayList<Observer>());
         observers.add(observer);
-        levelObserverMapper.put(level,observers);
+        levelObserverMapper.put(logType,observers);
     }
 
-    public void notifyObserver(int level,String message){
-        List<Observer> observers = levelObserverMapper.getOrDefault(level,null);
+    public void notifyObserver(LogType logType,String message){
+        List<Observer> observers = levelObserverMapper.getOrDefault(logType,null);
         if(observers != null){
             for(Observer observer: observers){
                 observer.notify(message);

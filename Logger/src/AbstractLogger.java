@@ -1,22 +1,22 @@
 public abstract class AbstractLogger {
     public AbstractLogger nextLogger;
-    public int level;
+    public LogType logType;
 
-    public AbstractLogger(int level){
-        this.level = level;
+    public AbstractLogger(LogType logType){
+        this.logType = logType;
     }
 
     public void setNextLogger(AbstractLogger nextLogger) {
         this.nextLogger = nextLogger;
     }
 
-    public void log(int level,String message, LogObservable observable){
-        if(level == this.level){
+    public void log(LogType logType,String message, LogObservable observable){
+        if(this.logType.equals(logType)){
             display(message);
-            observable.notifyObserver(level,message);
+            observable.notifyObserver(logType,message);
         }
         else if(nextLogger != null){
-            nextLogger.log(level,message,observable);
+            nextLogger.log(logType,message,observable);
         }
     }
 

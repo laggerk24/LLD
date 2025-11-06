@@ -1,6 +1,6 @@
 public class InfoLogger extends AbstractLogger{
-    public InfoLogger(int level) {
-        super(level);
+    public InfoLogger(LogType logType) {
+        super(logType);
     }
 
     @Override

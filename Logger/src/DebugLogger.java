@@ -1,6 +1,6 @@
 public class DebugLogger extends AbstractLogger{
-    public DebugLogger(int level) {
-        super(level);
+    public DebugLogger(LogType logType) {
+        super(logType);
     }
 
     @Override

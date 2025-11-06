@@ -1,6 +1,6 @@
 public class NullLogger extends AbstractLogger{
     public NullLogger() {
-        super(0);
+        super(null);
     }
 
     @Override

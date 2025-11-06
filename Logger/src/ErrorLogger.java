@@ -1,6 +1,6 @@
 public class ErrorLogger extends AbstractLogger{
-    public ErrorLogger(int level) {
-        super(level);
+    public ErrorLogger(LogType logType) {
+        super(logType);
     }
 
     @Override

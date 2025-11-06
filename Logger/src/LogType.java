@@ -1,5 +1,5 @@
 public enum LogType {
-    CONSOLE,
     DEBUG,
+    INFO,
     ERROR
 }

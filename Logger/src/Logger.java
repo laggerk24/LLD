@@ -30,14 +30,14 @@ public class Logger implements Cloneable, Serializable {
     }
 
     public void info(String message){
-        baseLogger.log(1,message,logObservable);
+        baseLogger.log(LogType.INFO,message,logObservable);
     }
 
     public void error(String message){
-        baseLogger.log(2,message,logObservable);
+        baseLogger.log(LogType.ERROR,message,logObservable);
     }
 
     public void debug(String message){
-        baseLogger.log(3,message,logObservable);
+        baseLogger.log(LogType.DEBUG,message,logObservable);
     }
 }
