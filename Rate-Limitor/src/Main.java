@@ -59,6 +59,6 @@ public class Main {
             Thread.sleep(100);
         }
 
-        checkConcurrency(rateLimiterService);
+//        checkConcurrency(rateLimiterService);
     }
 }
