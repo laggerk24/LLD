@@ -1,4 +1,8 @@
 import Enum.*;
+import Models.Ticket;
+
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.*;
 
@@ -8,6 +12,8 @@ public class Main {
     public static void checkConcurrancy(int vehicleNumber,VehicleType vehicleType) throws InterruptedException {
         ParkingSystem parkingSystem = ParkingSystem.getInstance();
         ExecutorService executorService = Executors.newFixedThreadPool(vehicleNumber);
+        Set<Ticket> set = ConcurrentHashMap.newKeySet();;
+
         CountDownLatch countDownLatch = new CountDownLatch(vehicleNumber);
         CyclicBarrier barrier = new CyclicBarrier(vehicleNumber);
         for(int i=0;i<vehicleNumber;i++){
@@ -20,12 +26,20 @@ public class Main {
                     throw new RuntimeException(e);
                 }
                 String vehicle = UUID.randomUUID().toString();
-                parkingSystem.parkVehicle(vehicle, VehicleType.TRUCK);
+                Ticket ticket  = parkingSystem.parkVehicle(vehicle, VehicleType.TRUCK);
+                if(ticket != null) set.add(ticket);
                 countDownLatch.countDown();
             });
         }
+
         countDownLatch.await();
         executorService.shutdown();
+
+        Thread.sleep(2000);
+
+        for(Ticket ticket: set){
+            System.out.println("Parking price " + parkingSystem.unParkVehicle(ticket));
+        }
     }
 
     public static void main(String[] args) throws InterruptedException {

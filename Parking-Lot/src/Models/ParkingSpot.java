@@ -31,13 +31,9 @@ public class ParkingSpot {
         return true;
     }
 
-    public boolean unParkVehicle() {
-        if (!isAvailable.compareAndSet(false, true)) {
-            System.err.println("Spot " + id + " is already empty.");
-            return false;
-        }
+    public void unParkVehicle(){
         vehicleParked = null;
-        return true;
+        isAvailable.set(true);
     }
 
     public VehicleType getPakringType() {

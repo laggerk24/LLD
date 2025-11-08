@@ -5,6 +5,7 @@ import Models.ParkingFloor;
 import Models.ParkingSpot;
 import Models.Ticket;
 import Strategy.Parking.*;
+import Strategy.Pricing.FlatPriceStrategy;
 import Strategy.Pricing.PricingStrategy;
 
 import java.util.ArrayList;
@@ -30,7 +31,11 @@ public class ParkingSystem {
     }
 
     private ParkingSystem(){
+        //assigning strategies
+//        pricingStrategy = new FlatPriceStrategy(); -- > assign this to see concurrency issue
         parkingStrategy = new GetFirstSpotStrategy();
+        pricingStrategy = new FlatPriceStrategy();
+
         parkingFloors = new ArrayList<>();
         parkingTickets = new ConcurrentHashMap<>();
 
