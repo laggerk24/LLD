@@ -1,3 +1,6 @@
+package Observer;
+
+import Enums.LogType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -5,7 +8,7 @@ import java.util.List;
 public class LogObservable {
     HashMap<LogType, List<Observer>> levelObserverMapper;
 
-    LogObservable(){
+    public LogObservable(){
         levelObserverMapper = new HashMap<>();
     }
 

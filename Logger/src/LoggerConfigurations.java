@@ -1,3 +1,9 @@
+import ChainOfResponsibility.*;
+import Enums.LogType;
+import Observer.*;
+import Observer.ConsoleObserver;
+import Observer.CoralogixObserver;
+
 public class LoggerConfigurations {
     public static AbstractLogger loggerInitializer(){
         InfoLogger infoLogger = new InfoLogger(LogType.INFO);

@@ -1,3 +1,8 @@
+package ChainOfResponsibility;
+
+import Enums.LogType;
+import Observer.LogObservable;
+
 public abstract class AbstractLogger {
     public AbstractLogger nextLogger;
     public LogType logType;

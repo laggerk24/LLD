@@ -1,4 +1,6 @@
-public class NullLogger extends AbstractLogger{
+package ChainOfResponsibility;
+
+public class NullLogger extends AbstractLogger {
     public NullLogger() {
         super(null);
     }

@@ -1,4 +1,8 @@
-public class InfoLogger extends AbstractLogger{
+package ChainOfResponsibility;
+
+import Enums.LogType;
+
+public class InfoLogger extends AbstractLogger {
     public InfoLogger(LogType logType) {
         super(logType);
     }

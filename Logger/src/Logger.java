@@ -1,3 +1,7 @@
+import ChainOfResponsibility.AbstractLogger;
+import Enums.LogType;
+import Observer.LogObservable;
+
 import java.io.Serial;
 import java.io.Serializable;
 
