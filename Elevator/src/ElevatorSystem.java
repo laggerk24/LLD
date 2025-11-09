@@ -12,11 +12,11 @@ import Strategy.*;
 public class ElevatorSystem {
     private static ElevatorSystem instance;
 
-    HashMap<Integer, ElevatorController> elevatorControllers;
-    ElevatorSelectionStrategy elevatorSelectionStrategy;
-    ExecutorService threadPool;
-    int minFloor;
-    int maxFloor;
+    private HashMap<Integer, ElevatorController> elevatorControllers;
+    private ElevatorSelectionStrategy elevatorSelectionStrategy;
+    private ExecutorService threadPool;
+    private int minFloor;
+    private int maxFloor;
 
 
     private ElevatorSystem(int minFloor, int maxFloor) {
