@@ -1,3 +1,6 @@
+
+<img width="2322" height="896" alt="Rate Limitor new UML" src="https://github.com/user-attachments/assets/041dcee7-42b1-4e21-8e0b-e91016de8843" />
+
 <img width="5771" height="2236" alt="Rate Limitor" src="https://github.com/user-attachments/assets/673ded63-8157-47db-93f5-a265a8de1168" />
 
 
