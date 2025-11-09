@@ -11,12 +11,16 @@ public class ElevatorCar {
     private int id;
     private int currentFloor;
     private Direction direction;
+    int minFloor;
+    int maxFloor;
     private List<ElevatorObservers> observers;
 
-    public ElevatorCar(int id, int currentFloor, Direction direction) {
+    public ElevatorCar(int id, int currentFloor, Direction direction, int minFloor, int maxFloor) {
         this.id = id;
         this.currentFloor = currentFloor;
         this.direction = direction;
+        this.minFloor = minFloor;
+        this.maxFloor = maxFloor;
         observers = new ArrayList<>();
         observers.add(new ElevatorDisplay());
         observers.add(new ElevatorDoor());
@@ -46,5 +50,13 @@ public class ElevatorCar {
         for(ElevatorObservers observer: observers){
             observer.notifyObservers(this);
         }
+    }
+
+    public int getMinFloor() {
+        return minFloor;
+    }
+
+    public int getMaxFloor() {
+        return maxFloor;
     }
 }

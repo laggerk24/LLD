@@ -9,6 +9,7 @@ import Models.Request;
 import Strategy.ElevatorSelectionStrategy;
 import Strategy.FirstComeFirstServed;
 import Strategy.OddEvenSelectionStrategy;
+import Strategy.ScanAlgorithmStrategy;
 
 
 public class ElevatorSystem {
@@ -28,7 +29,7 @@ public class ElevatorSystem {
         threadPool = Executors.newFixedThreadPool(4);
 
         for(int i=0;i<4;i++){
-            ElevatorController controller = new ElevatorController(new ElevatorCar(i,0, Direction.IDLE));
+            ElevatorController controller = new ElevatorController(new ElevatorCar(i,0, Direction.IDLE,minFloor,maxFloor));
             controller.setStrategy(new FirstComeFirstServed());
             threadPool.submit(controller);
             elevatorControllers.put(i,controller);
