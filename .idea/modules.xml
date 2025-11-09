@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BookMyShow/BookMyShow.iml" filepath="$PROJECT_DIR$/BookMyShow/BookMyShow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HashMap/HashMap.iml" filepath="$PROJECT_DIR$/HashMap/HashMap.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/LLD.iml" filepath="$PROJECT_DIR$/.idea/LLD.iml" />
       <module fileurl="file://$PROJECT_DIR$/Logger/Logger.iml" filepath="$PROJECT_DIR$/Logger/Logger.iml" />
       <module fileurl="file://$PROJECT_DIR$/Rate-Limitor/Rate-Limitor.iml" filepath="$PROJECT_DIR$/Rate-Limitor/Rate-Limitor.iml" />
