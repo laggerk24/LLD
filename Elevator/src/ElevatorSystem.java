@@ -6,10 +6,7 @@ import Enum.Direction;
 import Models.ElevatorCar;
 import Models.ElevatorController;
 import Models.Request;
-import Strategy.ElevatorSelectionStrategy;
-import Strategy.FirstComeFirstServed;
-import Strategy.OddEvenSelectionStrategy;
-import Strategy.ScanAlgorithmStrategy;
+import Strategy.*;
 
 
 public class ElevatorSystem {
@@ -30,7 +27,7 @@ public class ElevatorSystem {
 
         for(int i=0;i<4;i++){
             ElevatorController controller = new ElevatorController(new ElevatorCar(i,0, Direction.IDLE,minFloor,maxFloor));
-            controller.setStrategy(new FirstComeFirstServed());
+            controller.setStrategy(new ScanAlgorithmStrategy());
             threadPool.submit(controller);
             elevatorControllers.put(i,controller);
         }
@@ -62,7 +59,7 @@ public class ElevatorSystem {
             System.err.println("Error in accepting request for floor " + floor);
             return -1;
         } else {
-            System.out.println("Elevator " + controllerId + " recieved External Models.Request from " + floor + " Enum.Direction " + direction.toString());
+            System.out.println("Elevator " + controllerId + " recieved External Request from " + floor + " floor " + " Direction " + direction.toString());
             controller.acceptRequest(request);
             return controllerId;
         }
@@ -79,7 +76,7 @@ public class ElevatorSystem {
         if(elevatorController == null){
             System.err.println("Invalid Elevator Id");
         } else {
-            System.out.println("Elevator " + elevatorId + " recieved Internal Models.Request to " + destinationFloor);
+            System.out.println("Elevator " + elevatorId + " recieved Internal Request for " + destinationFloor + " floor");
             elevatorController.acceptRequest(request);
         }
     }

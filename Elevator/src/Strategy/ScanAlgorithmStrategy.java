@@ -9,10 +9,12 @@ public class ScanAlgorithmStrategy implements ElevatorMovementStrategy {
 
     private final Set<Integer> upRequests;
     private final Set<Integer> downRequests;
+    private int currentFloor;
 
     public ScanAlgorithmStrategy() {
         this.upRequests = new ConcurrentSkipListSet<>();
         this.downRequests = new ConcurrentSkipListSet<>(Collections.reverseOrder());
+        currentFloor = 0;
     }
 
     @Override
@@ -23,6 +25,12 @@ public class ScanAlgorithmStrategy implements ElevatorMovementStrategy {
                     System.out.println("Elevator " + elevatorCar.getId() + " is Idle");
                     elevatorCar.setDirection(Direction.IDLE);
                 }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                currentFloor = elevatorCar.getCurrentFloor();
                 continue;
             }
 
@@ -85,6 +93,7 @@ public class ScanAlgorithmStrategy implements ElevatorMovementStrategy {
                     }
                 }
             }
+            currentFloor = elevatorCar.getCurrentFloor();
         }
     }
 
@@ -97,11 +106,23 @@ public class ScanAlgorithmStrategy implements ElevatorMovementStrategy {
 
         int floor = request.getTargetFloor();
         Direction dir = request.getDirection();
-
-        if (dir == Direction.Up) {
-            upRequests.add(floor);
-        } else if (dir == Direction.DOWN) {
-            downRequests.add(floor);
+        if (request.getRequestSource() == RequestSource.EXTERNAL) {
+            // External request — direction known
+            if (dir == Direction.Up) {
+                upRequests.add(floor);
+            } else if (dir == Direction.DOWN) {
+                downRequests.add(floor);
+            }
+        } else {
+            // Internal request — infer direction using last known floor
+            if (floor > currentFloor) {
+                upRequests.add(floor);
+            } else if (floor < currentFloor) {
+                downRequests.add(floor);
+            } else {
+                System.out.println("Already at requested floor " + floor);
+            }
         }
     }
+
 }
