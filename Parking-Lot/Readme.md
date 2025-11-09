@@ -1,1 +1,1 @@
-<img width="4096" height="1028" alt="Parking UML" src="https://github.com/user-attachments/assets/b2367ecc-2b7b-4f59-a6dc-4f5f275caed7" />
+<img width="3237" height="1049" alt="Parking updated UML" src="https://github.com/user-attachments/assets/b457e299-e5b6-4fe7-ae80-38e762017e80" />
