@@ -1,1 +1,1 @@
-![Logger UML](https://github.com/user-attachments/assets/db19527a-6627-4ee5-ab25-58e2a001474c)
+<img width="1667" height="1165" alt="Logger UML" src="https://github.com/user-attachments/assets/322d1362-0ed9-42a3-8db3-5e00d18d34c0" />
