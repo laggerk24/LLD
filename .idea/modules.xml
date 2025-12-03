@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/LLD.iml" filepath="$PROJECT_DIR$/.idea/LLD.iml" />
       <module fileurl="file://$PROJECT_DIR$/Logger/Logger.iml" filepath="$PROJECT_DIR$/Logger/Logger.iml" />
       <module fileurl="file://$PROJECT_DIR$/Rate-Limitor/Rate-Limitor.iml" filepath="$PROJECT_DIR$/Rate-Limitor/Rate-Limitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sensor With Alert Management/Sensor With Alert Management.iml" filepath="$PROJECT_DIR$/Sensor With Alert Management/Sensor With Alert Management.iml" />
       <module fileurl="file://$PROJECT_DIR$/Snake And Ladder/Snake And Ladder.iml" filepath="$PROJECT_DIR$/Snake And Ladder/Snake And Ladder.iml" />
       <module fileurl="file://$PROJECT_DIR$/Splitwise/Splitwise.iml" filepath="$PROJECT_DIR$/Splitwise/Splitwise.iml" />
       <module fileurl="file://$PROJECT_DIR$/Thread Pool/Thread Pool.iml" filepath="$PROJECT_DIR$/Thread Pool/Thread Pool.iml" />
