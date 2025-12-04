@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/Splitwise/Splitwise.iml" filepath="$PROJECT_DIR$/Splitwise/Splitwise.iml" />
       <module fileurl="file://$PROJECT_DIR$/Thread Pool/Thread Pool.iml" filepath="$PROJECT_DIR$/Thread Pool/Thread Pool.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tic-Tac-Toe/Tic-Tac-Toe.iml" filepath="$PROJECT_DIR$/Tic-Tac-Toe/Tic-Tac-Toe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Twitter/Twitter.iml" filepath="$PROJECT_DIR$/Twitter/Twitter.iml" />
     </modules>
   </component>
 </project>
