@@ -40,7 +40,7 @@ public class ParkingSystem {
         parkingTickets = new ConcurrentHashMap<>();
 
         int count = 0;
-        for(int i=1;i<=1;i++){
+        for(int i=1;i<=2;i++){
             ParkingFloor floor = new ParkingFloor(i);
             for(int j=0;j<6;j++){
                 if(j <= 1){

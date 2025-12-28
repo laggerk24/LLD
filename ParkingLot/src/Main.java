@@ -48,7 +48,7 @@ public class Main {
 //            String vehicle = UUID.randomUUID().toString();
 //            parkingSystem.parkVehicle(vehicle, VehicleType.TRUCK);
 //        }
-        checkConcurrancy(10,VehicleType.TRUCK);
+//        checkConcurrancy(10,VehicleType.TRUCK);
 //        parkingSystem.showAllParkingSpots();
     }
 

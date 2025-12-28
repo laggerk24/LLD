@@ -1,0 +1,24 @@
+package Models;
+
+import Enum.*;
+
+import java.util.Scanner;
+
+public class HumanPlayer extends Player{
+    private final Scanner input = new Scanner(System.in);
+
+    public HumanPlayer(String name, Color color) {
+        super(name, color);
+    }
+
+    @Override
+    public PlayerType getPlayerType() {
+        return PlayerType.HUMAN;
+    }
+
+    @Override
+    public String[] decideMove(Board board) {
+        System.out.println("Enter your move (e.g, a2, a4): ");
+        return new String[]{input.next(),input.next()};
+    }
+}
