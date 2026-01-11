@@ -4,6 +4,8 @@ import Observer.*;
 import Observer.ConsoleObserver;
 import Observer.CoralogixObserver;
 
+// this we can make an inner class as well inside logger so that
+// no one else can access it and create new instance of logger
 public class LoggerConfigurations {
     public static AbstractLogger loggerInitializer(){
         // I can create a factory which would give me object of loggers here
