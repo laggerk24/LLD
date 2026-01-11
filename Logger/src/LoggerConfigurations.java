@@ -6,6 +6,7 @@ import Observer.CoralogixObserver;
 
 public class LoggerConfigurations {
     public static AbstractLogger loggerInitializer(){
+        // I can create a factory which would give me object of loggers here
         InfoLogger infoLogger = new InfoLogger(LogType.INFO);
         ErrorLogger errorLogger = new ErrorLogger(LogType.ERROR);
         DebugLogger debugLogger = new DebugLogger(LogType.DEBUG);

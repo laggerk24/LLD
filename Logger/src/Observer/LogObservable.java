@@ -19,7 +19,7 @@ public class LogObservable {
     }
 
     public void notifyObserver(LogType logType,String message){
-        List<Observer> observers = levelObserverMapper.getOrDefault(logType,null);
+        List<Observer> observers = levelObserverMapper.get(logType);
         if(observers != null){
             for(Observer observer: observers){
                 observer.notify(message);
