@@ -55,4 +55,16 @@ public class Logger implements Cloneable, Serializable {
     public void debug(String message){
         baseLogger.log(LogType.DEBUG,message,logObservable);
     }
+
+    private void submit(LogType type, String message) {
+        executor.submit(() ->
+                baseLogger.log(type, message, logObservable)
+        );
+    }
+
+    // ---------------- SHUTDOWN ----------------
+
+    public static void shutdown() {
+        executor.shutdown();
+    }
 }
