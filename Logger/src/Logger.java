@@ -4,11 +4,22 @@ import Observer.LogObservable;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Logger implements Cloneable, Serializable {
     private static volatile Logger logger;
     private static volatile AbstractLogger baseLogger;
     private static volatile LogObservable logObservable;
+
+    // can add this to make logger non-blocking in nature
+    private static final ExecutorService executor =
+            Executors.newSingleThreadExecutor(r -> {
+                Thread t = new Thread(r, "async-logger-thread");
+                t.setDaemon(true); // won't block JVM shutdown
+                return t;
+            });
+
     private Logger(){}
     public static Logger getLogger(){
         if(logger == null){
