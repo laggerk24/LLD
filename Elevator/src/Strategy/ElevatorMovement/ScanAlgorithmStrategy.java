@@ -1,18 +1,17 @@
-package Strategy;
+package Strategy.ElevatorMovement;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListSet;
 import Enum.*;
 import Models.*;
 
-public class LookAlgorithmStrategy implements ElevatorMovementStrategy {
+public class ScanAlgorithmStrategy implements ElevatorMovementStrategy {
 
     private final Set<Integer> upRequests;
     private final Set<Integer> downRequests;
     private int currentFloor;
 
-
-    public LookAlgorithmStrategy() {
+    public ScanAlgorithmStrategy() {
         this.upRequests = new ConcurrentSkipListSet<>();
         this.downRequests = new ConcurrentSkipListSet<>(Collections.reverseOrder());
         currentFloor = 0;
@@ -36,6 +35,7 @@ public class LookAlgorithmStrategy implements ElevatorMovementStrategy {
             }
 
             if (elevatorCar.getDirection() == Direction.IDLE) {
+                // Default direction
                 if (!upRequests.isEmpty()) {
                     elevatorCar.setDirection(Direction.Up);
                 } else {
@@ -59,8 +59,13 @@ public class LookAlgorithmStrategy implements ElevatorMovementStrategy {
                         System.out.println("Elevator " + elevatorCar.getId() + " served floor " + target);
                     }
                 } else {
-                    // LOOK: reverse direction immediately (don’t go to top floor)
-                    elevatorCar.setDirection(Direction.DOWN);
+                    // In SCAN, move to topmost floor (even if no request there)
+                    if (elevatorCar.getCurrentFloor() < elevatorCar.getMaxFloor()) {
+                        elevatorCar.setCurrentFloor(elevatorCar.getCurrentFloor() + 1);
+                        System.out.println("Elevator " + elevatorCar.getId() + " moving to top floor " + elevatorCar.getCurrentFloor());
+                    } else {
+                        elevatorCar.setDirection(Direction.DOWN);
+                    }
                 }
 
             } else if (elevatorCar.getDirection() == Direction.DOWN) {
@@ -79,8 +84,13 @@ public class LookAlgorithmStrategy implements ElevatorMovementStrategy {
                         System.out.println("Elevator " + elevatorCar.getId() + " served floor " + target);
                     }
                 } else {
-                    // LOOK: reverse immediately (no need to go to bottom floor)
-                    elevatorCar.setDirection(Direction.Up);
+                    // In SCAN, move to bottommost floor (even if no request there)
+                    if (elevatorCar.getCurrentFloor() > elevatorCar.getMinFloor()) {
+                        elevatorCar.setCurrentFloor(elevatorCar.getCurrentFloor() - 1);
+                        System.out.println("Elevator " + elevatorCar.getId() + " moving to bottom floor " + elevatorCar.getCurrentFloor());
+                    } else {
+                        elevatorCar.setDirection(Direction.Up);
+                    }
                 }
             }
             currentFloor = elevatorCar.getCurrentFloor();
@@ -114,4 +124,5 @@ public class LookAlgorithmStrategy implements ElevatorMovementStrategy {
             }
         }
     }
+
 }

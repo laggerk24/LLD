@@ -1,4 +1,4 @@
-package Strategy;
+package Strategy.ElevatorSelection;
 
 import Models.*;
 

@@ -1,6 +1,6 @@
 package Models;
 
-import Strategy.ElevatorMovementStrategy;
+import Strategy.ElevatorMovement.ElevatorMovementStrategy;
 
 public class ElevatorController implements Runnable{
     ElevatorCar elevatorCar;

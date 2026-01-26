@@ -6,7 +6,9 @@ import Enum.Direction;
 import Models.ElevatorCar;
 import Models.ElevatorController;
 import Models.Request;
-import Strategy.*;
+import Strategy.ElevatorMovement.ScanAlgorithmStrategy;
+import Strategy.ElevatorSelection.ElevatorSelectionStrategy;
+import Strategy.ElevatorSelection.OddEvenSelectionStrategy;
 
 
 public class ElevatorSystem {
