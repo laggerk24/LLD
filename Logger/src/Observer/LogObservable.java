@@ -10,6 +10,9 @@ public class LogObservable {
 
     public LogObservable(){
         levelObserverMapper = new HashMap<>();
+        for (LogType type : LogType.values()) {
+            levelObserverMapper.put(type,new ArrayList<Observer>());
+        }
     }
 
     public void addObserver(LogType logType, Observer observer){
